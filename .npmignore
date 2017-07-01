@@ -1,0 +1,7 @@
+.DS_Store
+.travis.yml
+coverage
+node_modules
+npm-debug.log
+reports
+yarn-error.log
