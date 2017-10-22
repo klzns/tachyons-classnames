@@ -1,5 +1,5 @@
 function readSourceFiles() {
-  return Promise.resolve([
+  return [
     {
       fileName: "no-underscore-file.css",
       content: ".foo { display: block; }"
@@ -49,7 +49,7 @@ function readSourceFiles() {
       }
       `
     }
-  ]);
+  ];
 }
 
 module.exports = readSourceFiles;

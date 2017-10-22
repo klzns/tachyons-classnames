@@ -92,14 +92,13 @@ const validateInput = sourceFiles => {
   );
 };
 
-function getTachyonsClassNames(sourceFiles) {
-  return Promise.resolve(sourceFiles)
-    .then(validateInput)
-    .then(getModulesNames)
-    .then(parseFiles)
-    .then(getFilesCssObj)
-    .then(getFilesClassNames)
-    .then(clearAPI);
-}
+const getTachyonsClassNames = R.pipe(
+  validateInput,
+  getModulesNames,
+  parseFiles,
+  getFilesCssObj,
+  getFilesClassNames,
+  clearAPI
+);
 
 module.exports = getTachyonsClassNames;

@@ -1,13 +1,13 @@
-jest.mock("./readSourceFiles.js");
+jest.mock("./readTachyonsSourceFiles.js");
 
 const getTachyonsClassNames = require("./index");
 
-describe("Tachyons Classes", () => {
+describe("Tachyons Classnames", () => {
   let result;
 
-  beforeAll(async () => {
-    const sourceFiles = await require("./readSourceFiles")();
-    result = await getTachyonsClassNames(sourceFiles);
+  beforeAll(() => {
+    const sourceFiles = require("./readTachyonsSourceFiles")();
+    result = getTachyonsClassNames(sourceFiles);
   });
 
   it("should have the correct shape", () => {
@@ -32,7 +32,7 @@ describe("Tachyons Classes", () => {
     expect(result[2].classNames).toMatchObject([".one", ".two"]);
   });
 
-  it("should get the classes inside media queries", () => {
+  it("should get classes inside media queries", () => {
     expect(result[3].classNames).toMatchObject([
       ".f7",
       ".f-6-ns",
@@ -52,6 +52,6 @@ describe("Tachyons Classes", () => {
   });
 
   it("should throw on invalid input", () => {
-    expect(getTachyonsClassNames()).rejects.toBeDefined();
+    expect(() => getTachyonsClassNames()).toThrow();
   });
 });
