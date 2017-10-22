@@ -46,6 +46,7 @@
     "tachyons": "^4.7.4"
   },
   "jest": {
+    "testPathIgnorePatterns": ["/node_modules/", "lib"],
     "coverageReporters": [
       "lcov"
     ],

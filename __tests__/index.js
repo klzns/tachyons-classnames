@@ -1,12 +1,12 @@
-jest.mock("./readTachyonsSourceFiles.js");
+jest.mock("../src/readTachyonsSourceFiles.js");
 
-const getTachyonsClassNames = require("./index");
+const getTachyonsClassNames = require("../src/index");
 
 describe("Tachyons Classnames", () => {
   let result;
 
   beforeAll(() => {
-    const sourceFiles = require("./readTachyonsSourceFiles")();
+    const sourceFiles = require("../src/readTachyonsSourceFiles")();
     result = getTachyonsClassNames(sourceFiles);
   });
 
